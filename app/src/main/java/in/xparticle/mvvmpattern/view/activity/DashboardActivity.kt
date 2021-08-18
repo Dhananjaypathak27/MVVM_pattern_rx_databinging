@@ -8,6 +8,7 @@ import `in`.xparticle.mvvmpattern.navigator.DashboardNavigator
 import `in`.xparticle.mvvmpattern.viewmodel.DashboardViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 
 class DashboardActivity : BaseActivity<ActivityDashboardBinding,
@@ -28,6 +29,11 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding,
         viewModel.navigator = this
 
         viewDataBinding?.nameTV?.text = "hello dhananjay"
+
+        viewDataBinding?.nameTV?.setOnClickListener(View.OnClickListener {
+            viewModel.callApiForAuth()
+        })
+
     }
 
     override fun onNetworkChanged(status: Boolean) {
